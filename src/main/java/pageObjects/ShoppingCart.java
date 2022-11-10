@@ -11,7 +11,7 @@ public class ShoppingCart {
 	By havePromo = By.cssSelector(".promo-code-button .collapse-button");
 	By promoTextBox = By.cssSelector("input[name='discount_name']");
 	By promoAddBtn = By.cssSelector("form[method='post'] span");
-	By proceedToCheckoutBtn = By.cssSelector(".cart-detailed-actions .btn-primary");
+	By proceedToCheckoutBtn = By.xpath("/html//section[@id='main']/div[@class='cart-grid row']//a[@href='http://teststore.automationtesting.co.uk/order']");
 	By deleteItemOne = By.cssSelector(".cart-items .cart-item:nth-of-type(1) .float-xs-left");
 	By deleteItemTwo = By.cssSelector(".cart-items .cart-item:nth-of-type(2) .float-xs-left");
 	By totalValue = By.cssSelector(".cart-total .value");

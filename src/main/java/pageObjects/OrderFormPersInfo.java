@@ -24,11 +24,11 @@ public class OrderFormPersInfo {
 		this.driver = driver;
 	}
 	
-	public WebElement getGenderMr() {
+	public WebElement getTitleMr() {
 		return driver.findElement(titleMr);
 	}
 
-	public WebElement getGenderMrs() {
+	public WebElement getTitleMrs() {
 		return driver.findElement(titleMrs);
 	}
 
