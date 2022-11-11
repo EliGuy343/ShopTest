@@ -5,6 +5,7 @@ import java.io.IOException;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import base.BasePage;
@@ -17,6 +18,9 @@ import pageObjects.ShopContentPanel;
 import pageObjects.ShopHomepage;
 import pageObjects.ShopProductPage;
 import pageObjects.ShoppingCart;
+
+
+@Listeners(resources.Listeners.class)
 
 public class OrderCompleteTest extends BasePage {
 
