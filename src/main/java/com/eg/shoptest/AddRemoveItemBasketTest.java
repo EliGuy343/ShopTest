@@ -26,18 +26,6 @@ public class AddRemoveItemBasketTest extends BasePage{
 		super();
 	}
 
-	@BeforeTest
-	public void setup() throws IOException {
-		driver = getDriver();
-		driver.get(getUrl());
-	}
-	
-	@AfterTest
-	public void tearDown() {
-		driver.close();
-		driver = null;
-	}
-	
 	@Test
 	public void AddRemoveItem() throws InterruptedException {
 Homepage home = new Homepage(driver);

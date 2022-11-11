@@ -15,6 +15,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 
 public class BasePage {
 	public static WebDriver driver;
@@ -27,6 +29,18 @@ public class BasePage {
 				System.getProperty("user.dir") 
 					+"\\src\\main\\java\\resources\\config.properties");
 		prop.load(data);
+	}
+	
+	@BeforeTest
+	public void setup() throws IOException {
+		driver = getDriver();
+		driver.get(getUrl());
+	}
+	
+	@AfterTest
+	public void tearDown() {
+		driver.close();
+		driver = null;
 	}
 	
 	public WebDriver getDriver() throws IOException {

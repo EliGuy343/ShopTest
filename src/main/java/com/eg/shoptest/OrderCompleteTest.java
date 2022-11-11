@@ -28,18 +28,6 @@ public class OrderCompleteTest extends BasePage {
 		super();
 	}
 	
-	@BeforeTest
-	public void setup() throws IOException {
-		driver = getDriver();
-		driver.get(getUrl());
-	}
-	
-	@AfterTest
-	public void tearDown() {
-		driver.close();
-		driver = null;
-	}
-	
 	@Test
 	public void endToEndTest() throws InterruptedException {
 		Homepage home = new Homepage(driver);
