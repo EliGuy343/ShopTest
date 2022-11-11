@@ -5,6 +5,7 @@ import java.io.IOException;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -76,6 +77,6 @@ Homepage home = new Homepage(driver);
 		WebDriverWait wait = new WebDriverWait(driver, 120);
 		wait.until(ExpectedConditions.invisibilityOf(cart.getDeleteItemTwo()));
 		
-		
+		Assert.assertEquals(cart.getTotalAmount().getText(),"$45.24");
 	}
 }
