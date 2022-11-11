@@ -9,7 +9,7 @@ public class ShopContentPanel {
 	public WebDriver driver;
 	
 	By proceedToCheckoutBtn = By.cssSelector(".cart-content-btn .btn-primary");
-	By continueShoppingBtn = By.xpath("//button[contains(text(),'continue')]");
+	By continueShoppingBtn = By.cssSelector(".cart-content-btn [data-dismiss]");
 	
 	public ShopContentPanel(WebDriver driver) {
 		this.driver = driver;
