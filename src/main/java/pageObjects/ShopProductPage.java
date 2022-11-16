@@ -13,6 +13,8 @@ public class ShopProductPage {
 	By quantityDecrease = By.cssSelector(".touchspin-down");
 	By addToCartBtn = By.cssSelector(".add-to-cart.btn.btn-primary");
 	By homepageLink = By.xpath("//span[.='Home']");
+	By selectBlack = By.cssSelector("li:nth-of-type(2) > label > input[name='group[2]']");
+	By selectWhite = By.cssSelector("li:nth-of-type(1) > label > input[name='group[2]']");
 	
 	public ShopProductPage(WebDriver driver) {
 		this.driver = driver;
@@ -36,6 +38,14 @@ public class ShopProductPage {
 	
 	public WebElement getHomepageLink() {
 		return driver.findElement(homepageLink);
+	}
+	
+	public WebElement getSelectBlack() {
+		return driver.findElement(selectBlack);
+	}
+	
+	public WebElement getSelectWhite() {
+		return driver.findElement(selectWhite);
 	}
 	
 }
