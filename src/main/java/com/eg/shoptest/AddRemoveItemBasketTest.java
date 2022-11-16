@@ -28,7 +28,7 @@ public class AddRemoveItemBasketTest extends BasePage{
 
 	@Test
 	public void AddRemoveItem() throws InterruptedException {
-Homepage home = new Homepage(driver);
+		Homepage home = new Homepage(driver);
 		
 		Thread.sleep(2000);
 		home.getToggle().click();
