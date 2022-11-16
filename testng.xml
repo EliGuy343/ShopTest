@@ -11,5 +11,17 @@
     <classes>
       <class name="com.eg.shoptest.OrderCompleteTest"/>
     </classes>
-  </test> <!-- Test -->
-</suite> <!-- Suite -->
+  </test>
+  
+  <test thread-count="5" name="AddRemoveItemTest">
+  	<classes>
+      <class name="com.eg.shoptest.MakeOrderByBank"/>
+    </classes>
+  </test>
+  
+  <test thread-count="5" name="AddRemoveItemTest">
+  	<classes>
+      <class name="com.eg.shoptest.BuyAllProducts"/>
+    </classes>
+  </test>
+</suite> 
