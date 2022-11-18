@@ -6,6 +6,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
 import base.BasePage;
+import base.Hooks;
 import pageObjects.Homepage;
 import pageObjects.OrderFormDelivery;
 import pageObjects.OrderFormPayment;
@@ -16,15 +17,15 @@ import pageObjects.ShopHomepage;
 import pageObjects.ShopProductPage;
 import pageObjects.ShoppingCart;
 
-public class MakeOrderByBank extends BasePage {
+public class MakeOrderByBank extends Hooks {
 
 	public MakeOrderByBank() throws IOException {
 		super();
 	}
 	
 	@Test
-	public void makeOrderByBank() throws InterruptedException {
-Homepage home = new Homepage(driver);
+	public void makeOrderByBank() throws InterruptedException, IOException {
+		Homepage home = new Homepage();
 		
 		Thread.sleep(2000);
 		home.getToggle().click();
@@ -33,11 +34,11 @@ Homepage home = new Homepage(driver);
 		home.getTestStoreLink().click();
 		
 		Thread.sleep(2000);
-		ShopHomepage  shopHome = new ShopHomepage(driver);
+		ShopHomepage  shopHome = new ShopHomepage();
 		shopHome.getProdOne().click();
 		
 		Thread.sleep(2000);
-		ShopProductPage shopProd = new ShopProductPage(driver);
+		ShopProductPage shopProd = new ShopProductPage();
 		Select option = new Select(shopProd.getSizeDropDownMenu());
 		option.selectByVisibleText("L");
 		shopProd.getQuantityIncrease().click();
@@ -45,10 +46,10 @@ Homepage home = new Homepage(driver);
 		shopProd.getAddToCartBtn().click();
 		
 		Thread.sleep(2000);
-		ShopContentPanel cPanel = new ShopContentPanel(driver);
+		ShopContentPanel cPanel = new ShopContentPanel();
 		cPanel.getProceedToCheckoutBtn().click();
 		
-		ShoppingCart cart = new ShoppingCart(driver);
+		ShoppingCart cart = new ShoppingCart();
 		cart.getHavePromo().click();
 		cart.getPromoTextBox().sendKeys("20OFF");
 		cart.getPromoAddBtn().click();
@@ -57,7 +58,7 @@ Homepage home = new Homepage(driver);
 		cart.getProceedCheckoutBtn().click();
 		
 		Thread.sleep(2000);
-		OrderFormPersInfo orderPersInfo = new OrderFormPersInfo(driver);
+		OrderFormPersInfo orderPersInfo = new OrderFormPersInfo();
 		orderPersInfo.getTitleMr().click();
 		orderPersInfo.getFirstNameField().sendKeys("John");
 		orderPersInfo.getLastnameField().sendKeys("Smith");
@@ -66,7 +67,7 @@ Homepage home = new Homepage(driver);
 		orderPersInfo.getContinueBtn().click();
 		
 		Thread.sleep(2000);
-		OrderFormDelivery orderDelivery = new OrderFormDelivery(driver);
+		OrderFormDelivery orderDelivery = new OrderFormDelivery();
 		orderDelivery.getAddressField().sendKeys("123 Main Street");
 		orderDelivery.getCityField().sendKeys("Houston");
 		Select state = new Select(orderDelivery.getStateDropdown());
@@ -75,12 +76,12 @@ Homepage home = new Homepage(driver);
 		orderDelivery.getContinueBtn().click();
 		
 		Thread.sleep(2000);
-		OrderFormShippingMethod shipMethod = new OrderFormShippingMethod(driver);
+		OrderFormShippingMethod shipMethod = new OrderFormShippingMethod();
 		shipMethod.getDeliveryMsgTextBox().sendKeys("Just leave at the door, if I'm not home");
 		shipMethod.getContinueBtn().click();
 		
 		Thread.sleep(2000);
-		OrderFormPayment orderPay = new OrderFormPayment(driver);
+		OrderFormPayment orderPay = new OrderFormPayment();
 		orderPay.getPayByWireRadioBtn().click();
 		orderPay.getTermsConditionsCheckbox().click();
 		orderPay.getOrderBtn().click();

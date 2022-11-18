@@ -6,22 +6,22 @@ import java.io.IOException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import base.BasePage;
+import base.Hooks;
 import pageObjects.Homepage;
 import pageObjects.ShopContentPanel;
 import pageObjects.ShopHomepage;
 import pageObjects.ShopProductPage;
 import pageObjects.ShoppingCart;
 
-public class BuyAllProducts extends BasePage {
+public class BuyAllProducts extends Hooks {
 
 	public BuyAllProducts() throws IOException {
 		super();
 	}
 
 	@Test
-	public void buyMultipleProductsTest() throws InterruptedException {
-		Homepage home = new Homepage(driver);
+	public void buyMultipleProductsTest() throws InterruptedException, IOException {
+		Homepage home = new Homepage();
 		
 		Thread.sleep(2000);
 		home.getToggle().click();
@@ -30,15 +30,15 @@ public class BuyAllProducts extends BasePage {
 		home.getTestStoreLink().click();
 		
 		Thread.sleep(2000);
-		ShopHomepage  shopHome = new ShopHomepage(driver);
+		ShopHomepage  shopHome = new ShopHomepage();
 		shopHome.getProdOne().click();
 		
 		Thread.sleep(2000);
-		ShopProductPage shopProd = new ShopProductPage(driver);
+		ShopProductPage shopProd = new ShopProductPage();
 		shopProd.getAddToCartBtn().click();
 		
 		Thread.sleep(2000);
-		ShopContentPanel cPanel = new ShopContentPanel(driver);
+		ShopContentPanel cPanel = new ShopContentPanel();
 		cPanel.getContinueShoppingBtn().click();
 		shopProd.getHomepageLink().click();
 		
@@ -46,11 +46,11 @@ public class BuyAllProducts extends BasePage {
 		shopHome.getProdTwo().click();
 		
 		Thread.sleep(2000);
-		shopProd = new ShopProductPage(driver);
+		shopProd = new ShopProductPage();
 		shopProd.getAddToCartBtn().click();
 		
 		Thread.sleep(2000);
-		cPanel = new ShopContentPanel(driver);
+		cPanel = new ShopContentPanel();
 		cPanel.getContinueShoppingBtn().click();
 		shopProd.getHomepageLink().click();
 		
@@ -58,11 +58,11 @@ public class BuyAllProducts extends BasePage {
 		shopHome.getProdThree().click();
 		
 		Thread.sleep(2000);
-		shopProd = new ShopProductPage(driver);
+		shopProd = new ShopProductPage();
 		shopProd.getAddToCartBtn().click();
 		
 		Thread.sleep(2000);
-		cPanel = new ShopContentPanel(driver);
+		cPanel = new ShopContentPanel();
 		cPanel.getContinueShoppingBtn().click();
 		shopProd.getHomepageLink().click();
 		
@@ -70,11 +70,11 @@ public class BuyAllProducts extends BasePage {
 		shopHome.getProdFour().click();
 		
 		Thread.sleep(2000);
-		shopProd = new ShopProductPage(driver);
+		shopProd = new ShopProductPage();
 		shopProd.getAddToCartBtn().click();
 		
 		Thread.sleep(2000);
-		cPanel = new ShopContentPanel(driver);
+		cPanel = new ShopContentPanel();
 		cPanel.getContinueShoppingBtn().click();
 		shopProd.getHomepageLink().click();
 		
@@ -82,11 +82,11 @@ public class BuyAllProducts extends BasePage {
 		shopHome.getProdFive().click();
 		
 		Thread.sleep(2000);
-		shopProd = new ShopProductPage(driver);
+		shopProd = new ShopProductPage();
 		shopProd.getAddToCartBtn().click();
 		
 		Thread.sleep(2000);
-		cPanel = new ShopContentPanel(driver);
+		cPanel = new ShopContentPanel();
 		cPanel.getContinueShoppingBtn().click();
 		shopProd.getHomepageLink().click();
 		
@@ -94,11 +94,11 @@ public class BuyAllProducts extends BasePage {
 		shopHome.getProdSix().click();
 		
 		Thread.sleep(2000);
-		shopProd = new ShopProductPage(driver);
+		shopProd = new ShopProductPage();
 		shopProd.getAddToCartBtn().click();
 		
 		Thread.sleep(2000);
-		cPanel = new ShopContentPanel(driver);
+		cPanel = new ShopContentPanel();
 		cPanel.getContinueShoppingBtn().click();
 		shopProd.getHomepageLink().click();
 		
@@ -106,11 +106,11 @@ public class BuyAllProducts extends BasePage {
 		shopHome.getProdSeven().click();
 		
 		Thread.sleep(2000);
-		shopProd = new ShopProductPage(driver);
+		shopProd = new ShopProductPage();
 		shopProd.getAddToCartBtn().click();
 		
 		Thread.sleep(2000);
-		cPanel = new ShopContentPanel(driver);
+		cPanel = new ShopContentPanel();
 		cPanel.getContinueShoppingBtn().click();
 		shopProd.getHomepageLink().click();
 		
@@ -118,15 +118,15 @@ public class BuyAllProducts extends BasePage {
 		shopHome.getProdEight().click();
 		
 		Thread.sleep(2000);
-		shopProd = new ShopProductPage(driver);
+		shopProd = new ShopProductPage();
 		shopProd.getAddToCartBtn().click();
 		
 		Thread.sleep(2000);
-		cPanel = new ShopContentPanel(driver);
+		cPanel = new ShopContentPanel();
 		cPanel.getProceedToCheckoutBtn().click();
 		
 		Thread.sleep(2000);
-		ShoppingCart cart = new ShoppingCart(driver);
+		ShoppingCart cart = new ShoppingCart();
 		Assert.assertEquals(cart.getTotalAmount().getText(),"$177.54");
 			
 	}

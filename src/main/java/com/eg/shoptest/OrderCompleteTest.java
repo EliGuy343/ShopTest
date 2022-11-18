@@ -3,12 +3,12 @@ package com.eg.shoptest;
 import java.io.IOException;
 
 import org.openqa.selenium.support.ui.Select;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
+
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-import base.BasePage;
+
+import base.Hooks;
 import pageObjects.Homepage;
 import pageObjects.OrderFormDelivery;
 import pageObjects.OrderFormPayment;
@@ -22,15 +22,15 @@ import pageObjects.ShoppingCart;
 
 @Listeners(resources.Listeners.class)
 
-public class OrderCompleteTest extends BasePage {
+public class OrderCompleteTest extends Hooks {
 
 	public OrderCompleteTest() throws IOException {
 		super();
 	}
 	
 	@Test
-	public void endToEndTest() throws InterruptedException {
-		Homepage home = new Homepage(driver);
+	public void endToEndTest() throws InterruptedException, IOException {
+		Homepage home = new Homepage();
 		
 		Thread.sleep(2000);
 		home.getToggle().click();
@@ -39,21 +39,21 @@ public class OrderCompleteTest extends BasePage {
 		home.getTestStoreLink().click();
 		
 		Thread.sleep(2000);
-		ShopHomepage  shopHome = new ShopHomepage(driver);
+		ShopHomepage  shopHome = new ShopHomepage();
 		shopHome.getProdOne().click();
 		
 		Thread.sleep(2000);
-		ShopProductPage shopProd = new ShopProductPage(driver);
+		ShopProductPage shopProd = new ShopProductPage();
 		Select option = new Select(shopProd.getSizeDropDownMenu());
 		option.selectByVisibleText("M");
 		shopProd.getQuantityIncrease().click();
 		shopProd.getAddToCartBtn().click();
 		
 		Thread.sleep(2000);
-		ShopContentPanel cPanel = new ShopContentPanel(driver);
+		ShopContentPanel cPanel = new ShopContentPanel();
 		cPanel.getProceedToCheckoutBtn().click();
 		
-		ShoppingCart cart = new ShoppingCart(driver);
+		ShoppingCart cart = new ShoppingCart();
 		cart.getHavePromo().click();
 		cart.getPromoTextBox().sendKeys("20OFF");
 		cart.getPromoAddBtn().click();
@@ -62,7 +62,7 @@ public class OrderCompleteTest extends BasePage {
 		cart.getProceedCheckoutBtn().click();
 		
 		Thread.sleep(3000);
-		OrderFormPersInfo orderPersInfo = new OrderFormPersInfo(driver);
+		OrderFormPersInfo orderPersInfo = new OrderFormPersInfo();
 		orderPersInfo.getTitleMr().click();
 		orderPersInfo.getFirstNameField().sendKeys("John");
 		orderPersInfo.getLastnameField().sendKeys("Smith");
@@ -71,7 +71,7 @@ public class OrderCompleteTest extends BasePage {
 		orderPersInfo.getContinueBtn().click();
 		
 		Thread.sleep(3000);
-		OrderFormDelivery orderDelivery = new OrderFormDelivery(driver);
+		OrderFormDelivery orderDelivery = new OrderFormDelivery();
 		orderDelivery.getAddressField().sendKeys("123 Main Street");
 		orderDelivery.getCityField().sendKeys("Houston");
 		Select state = new Select(orderDelivery.getStateDropdown());
@@ -80,12 +80,12 @@ public class OrderCompleteTest extends BasePage {
 		orderDelivery.getContinueBtn().click();
 		
 		Thread.sleep(3000);
-		OrderFormShippingMethod shipMethod = new OrderFormShippingMethod(driver);
-		shipMethod.getDeliveryMsgTextBox().sendKeys("Yeah, just leave it in the red shade which has the delivery markings on it. Also Please don't touch the skull door, it's not for you.");
+		OrderFormShippingMethod shipMethod = new OrderFormShippingMethod();
+		shipMethod.getDeliveryMsgTextBox().sendKeys("just leave it at the door");
 		shipMethod.getContinueBtn().click();
 		
 		Thread.sleep(3000);
-		OrderFormPayment orderPay = new OrderFormPayment(driver);
+		OrderFormPayment orderPay = new OrderFormPayment();
 		orderPay.getPayByCheckRadioBtn().click();
 		orderPay.getTermsConditionsCheckbox().click();
 		orderPay.getOrderBtn().click();
